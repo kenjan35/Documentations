@@ -94,13 +94,13 @@ Une cellule :
 df.loc[0, "Age"]
 ```
 
-* La méthode loc (par étiquette)
+ La méthode loc (par étiquette)
 - Principe : On appelle les lignes ou les colonnes par leur nom exact.
 - Inclusif : Dans un découpage (slice) de type 0:3, la dernière valeur est comprise dans le résultat.
 - Filtre : Elle accepte les conditions logiques (les booléens).
 - Exemple : df.loc[0, 'Nom'] sélectionne la ligne d'étiquette 0 et la colonne nommée 'Nom'.
 
-* La méthode iloc (par position)
+ La méthode iloc (par position)
 - Principe : On appelle les lignes ou les colonnes par leur position en chiffres entiers (0 pour la première, 1 pour la deuxième, etc.).
 - Exclusif : Dans un découpage (slice) de type 0:3, la dernière valeur n'est pas comprise (elle s'arrête à 2).
 - Exemple : df.iloc[0, 0] sélectionne la première ligne et la première colonne du tableau.
