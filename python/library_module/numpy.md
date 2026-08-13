@@ -1,6 +1,6 @@
 ### Numpy
 
-1. Créer un tableau
+## 1. Créer un tableau
 
 À partir d'une liste :
 ```python
@@ -32,7 +32,7 @@ Résultat :
  [3 4]]
 ```
 
-2. Connaître les propriétés
+## 2. Connaître les propriétés
 
 ```python
 a = np.array([1, 2, 3, 4])
@@ -56,7 +56,7 @@ size → nombre d'éléments
 dtype → type
 ndim → nombre de dimensions
 
-3. Créer des tableaux spéciaux
+## 3. Créer des tableaux spéciaux
 
 Tous les zéros :
 
@@ -86,7 +86,7 @@ np.eye(3)
  [0. 0. 1.]]
 ```
 
-4. Générer des suites
+## 4. Générer des suites
 
 ```python
 np.arange(0, 10)
@@ -107,7 +107,7 @@ np.linspace(0, 1, 5)
 [0.   0.25 0.5  0.75 1.  ]
 ```
 
-5. Sélectionner des éléments
+## 5. Sélectionner des éléments
 ```python
 a = np.array([10, 20, 30, 40])
 ```
@@ -136,13 +136,13 @@ Résultat :
 [20 30]
 ```
 
-6. Modifier
+## 6. Modifier
 
 ```python
 a[0] = 100
 ```
 
-7. Opérations mathématiques
+## 7. Opérations mathématiques
 
 Addition :
 
@@ -171,7 +171,7 @@ a / 2
 
 Contrairement aux listes Python, ces opérations s'appliquent à tous les éléments en une seule instruction.
 
-8. Opérations entre tableaux
+## 8. Opérations entre tableaux
 ```python
 a = np.array([1,2,3])
 b = np.array([4,5,6])
@@ -196,7 +196,7 @@ a * b
 [ 4 10 18]
 ```
 
-9. Statistiques
+## 9. Statistiques
 ```python
 a = np.array([3,8,2,6])
 ```
@@ -237,7 +237,7 @@ Variance :
 a.var()
 ```
 
-10. Rechercher
+## 10. Rechercher
 
 Indice du maximum :
 
@@ -251,7 +251,7 @@ Indice du minimum :
 a.argmin()
 ```
 
-11. Conditions
+## 11. Conditions
 ```python
 a = np.array([5,10,15,20])
 a > 10
@@ -275,7 +275,7 @@ Résultat :
 [15 20]
 ```
 
-12. Modifier selon une condition
+## 12. Modifier selon une condition
 ```python
 a[a > 10] = 0
 ```
@@ -286,12 +286,12 @@ Résultat :
 [5 10 0 0]
 ```
 
-13. Trier
+## 13. Trier
 ```python
 np.sort(a)
 ```
 
-14. Concaténer
+## 14. Concaténer
 ```python
 a = np.array([1,2])
 b = np.array([3,4])
@@ -305,7 +305,7 @@ Résultat :
 [1 2 3 4]
 ```
 
-15. Changer la forme
+## 15. Changer la forme
 ```python
 a = np.arange(12)
 a.reshape(3,4)
@@ -319,21 +319,21 @@ Résultat :
  [ 8  9 10 11]]
 ```
 
-16. Transposer
+## 16. Transposer
 ```python
 m.T
 ```
 
 Inverse lignes/colonnes.
 
-17. Aplatir
+## 17. Aplatir
 ```python
 m.flatten()
 ```
 
 Transforme une matrice en vecteur.
 
-18. Calculs mathématiques
+## 18. Calculs mathématiques
 ```python
 np.sqrt(a)
 np.log(a)
@@ -342,7 +342,7 @@ np.sin(a)
 np.cos(a)
 ```
 
-19. Nombres aléatoires
+## 19. Nombres aléatoires
 ```python
 np.random.rand(5)
 ```
@@ -355,7 +355,7 @@ Entiers :
 np.random.randint(0,10,5)
 ```
 
-20. Produit matriciel
+## 20. Produit matriciel
 ```python
 A = np.array([[1,2],
               [3,4]])
@@ -372,7 +372,7 @@ ou
 np.dot(A,B)
 ```
 
-21. Fenêtres glissantes (ton projet)
+## 21. Fenêtres glissantes (ton projet)
 
 Tu utilises déjà ce principe :
 
@@ -388,7 +388,7 @@ Résultat :
 [11 12 13]
 ```
 
-22. Calcul des différences
+## 22. Calcul des différences
 
 Très utile dans ton projet.
 
@@ -406,7 +406,7 @@ Résultat :
 
 C'est exactement ce qui permet de détecter les baisses de carburant.
 
-23. Empiler des features
+## 23. Empiler des features
 
 Tu utilises aussi :
 
@@ -429,14 +429,14 @@ Résultat :
 
 Chaque ligne représente un échantillon et chaque colonne une feature.
 
-24. Valeur absolue
+## 24. Valeur absolue
 ```python
 np.abs(delta)
 ```
 
 Très utilisé pour ignorer le sens de la variation.
 
-25. Moyenne glissante
+## 25. Moyenne glissante
 ```python
 window = np.array([10,11,13,12])
 

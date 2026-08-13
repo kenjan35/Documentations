@@ -3,7 +3,7 @@
 Le module glob permet de rechercher des fichiers ou des dossiers en utilisant des motifs (patterns) avec des caractères spéciaux, un peu comme dans un terminal Linux (*.txt, *.py, etc.).
 Il est très pratique lorsque tu ne connais pas exactement le nom d'un fichier.
 
-1. Trouver tous les fichiers .py
+## 1. Trouver tous les fichiers .py
 
 ```python
 import glob
@@ -22,7 +22,7 @@ Résultat :
 - *→n'importe quelle suite de caractères
 - .py→se termine par .py
 
-2. Trouver tous les fichiers
+## 2. Trouver tous les fichiers
 
 ```python
 import glob
@@ -37,7 +37,7 @@ Résultat :
 ['main.py', 'app.py', 'test.py', 'data.csv']
 ```
 
-3. Chercher dans un dossier
+## 3. Chercher dans un dossier
 
 Imaginons :
 ```sh
@@ -62,7 +62,7 @@ Résultat :
 ['images/logo.png', 'images/fond.jpg', 'images/chat.png']
 ```
 
-4. Chercher uniquement les images PNG
+## 4. Chercher uniquement les images PNG
 
 ```python
 import glob
@@ -71,7 +71,7 @@ png = glob.glob("images/*.png")
 print(png)
 ```
 
-5. Rechercher récursivement
+## 5. Rechercher récursivement
 
 Supposons :
 ```sh
@@ -106,7 +106,7 @@ Résultat :
 ]
 ```
 
-6. Utiliser ?
+## 6. Utiliser ?
 
 Le caractère ? représente exactement un caractère.
 
@@ -120,7 +120,7 @@ Résultat :
 ```
 Normal_10.csv n'est pas trouvé car ? ne remplace qu'un seul caractère.
 
-7. Utiliser de crochets []
+## 7. Utiliser de crochets []
 
 Supposons :
 
@@ -135,7 +135,7 @@ Résultat :
 ```sh
 ['Theft_1.csv', 'Theft_2.csv']
 ```
-8. Parcourir tous les fichiers trouvés
+## 8. Parcourir tous les fichiers trouvés
 
 ```python
 import glob
@@ -152,7 +152,7 @@ Theft_2.csv
 ```
 C'est très utile pour traiter automatiquement plusieurs fichiers.
 
-9. glob.iglob()
+## 9. glob.iglob()
 
 Retourne un itérateur, qui produit les fichiers un par un.
 ```python

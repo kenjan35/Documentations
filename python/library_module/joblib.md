@@ -1,6 +1,6 @@
 ### Joblib
 
-1. Sauvegarder et charger des objets
+## 1. Sauvegarder et charger des objets
 
 C'est la fonctionnalité la plus connue.
 
@@ -20,7 +20,7 @@ Utile pour :
 * paramètres
 * objets Python complexes
 
-2. Sauvegarder des modèles de Machine Learning
+## 2. Sauvegarder des modèles de Machine Learning
 
 Très utilisé avec scikit-learn.
 
@@ -50,7 +50,7 @@ joblib.load()
 Prédiction
 ```
 
-3. Compression des fichiers
+## 3. Compression des fichiers
 
 joblib peut compresser les objets sauvegardés.
 
@@ -58,7 +58,7 @@ joblib peut compresser les objets sauvegardés.
 joblib.dump(data, "data.joblib", compress=3)
 ```
 
-Tu peux utiliser différents niveaux de compression.
+On peut utiliser différents niveaux de compression.
 
 ```python
 compress=0
@@ -80,7 +80,7 @@ compress=9
 
 La compression peut réduire considérablement la taille des fichiers contenant de gros tableaux NumPy.
 
-4. Calcul parallèle
+## 4. Calcul parallèle
 
 joblib permet d'exécuter plusieurs tâches en parallèle avec :
 
@@ -118,7 +118,7 @@ n_jobs=2
 
 signifie qu'on demande à joblib d'utiliser 2 workers.
 
-Tu peux aussi utiliser :
+On peut aussi utiliser :
 
 ```python
 n_jobs=-1

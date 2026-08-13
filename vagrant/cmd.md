@@ -18,7 +18,7 @@ mon_projet/
 └── Vagrantfile
 ```
 
-Ce fichier contient un modèle de configuration que tu pourras modifier.
+Ce fichier contient un modèle de configuration que on pourras modifier.
 
 Que se passe-t-il en interne ?
 
@@ -54,7 +54,7 @@ vagrant init -f hashicorp/bionic64
 
 ### Étape 1 : Lire le Vagrantfile
 
-Il commence par ouvrir ton fichier :
+Il commence par ouvrir notre fichier :
 
 ```
 Vagrantfile
@@ -78,7 +78,7 @@ Il regarde si :
 ubuntu/jammy64
 ```
 
-est déjà présente sur ton ordinateur.
+est déjà présente sur notre ordinateur.
 
 #### Cas 1 : la box existe
 
@@ -88,7 +88,7 @@ Il l'utilise directement.
 
 Il la télécharge automatiquement.
 
-Tu verras quelque chose comme :
+On verra quelque chose comme :
 
 ==> default: Box 'ubuntu/jammy64' could not be found.
 ==> default: Downloading...
@@ -154,7 +154,7 @@ Configuration des interfaces réseau.
 
 VirtualBox démarre la machine.
 
-C'est comme si tu cliquais sur :
+C'est comme si on cliquait sur :
 
 ```
 Start
@@ -164,7 +164,7 @@ dans l'interface graphique de VirtualBox.
 
 #### Étape 6 : Provisionnement
 
-Si tu as défini un provisionneur :
+Si on a défini un provisionneur :
 
 ```ruby
 config.vm.provision "shell", inline: <<-SHELL
@@ -182,13 +182,13 @@ apt update
 apt install -y nginx
 ```
 
-Tu n'as rien à faire.
+On n'a rien à faire.
 
 #### Étape 7 : La VM est prête
 
-À la fin, tu verras un message indiquant que la machine est prête.
+À la fin, on verra un message indiquant que la machine est prête.
 
-Tu peux alors te connecter avec :
+On peut alors te connecter avec :
 
 ```
 vagrant ssh
@@ -198,7 +198,7 @@ vagrant ssh
 
 Supposons que la VM existe déjà.
 
-Tu exécutes de nouveau :
+On exécute de nouveau :
 
 ```
 vagrant up
@@ -236,7 +236,7 @@ Au lieu d'ouvrir VirtualBox et de te connecter manuellement, Vagrant utilise aut
 * le nom d'utilisateur,
 * la clé SSH.
 
-Tu arrives directement dans le terminal de la VM.
+On arrive directement dans le terminal de la VM.
 
 Exemple :
 
@@ -246,7 +246,7 @@ $ vagrant ssh
 vagrant@ubuntu:~$
 ```
 
-Tu peux alors exécuter des commandes Linux :
+On peut alors exécuter des commandes Linux :
 
 ```bash
 pwd
@@ -261,7 +261,7 @@ Pour quitter la machine :
 exit
 ```
 
-Tu reviens sur ton ordinateur hôte.
+On revient sur notre ordinateur hôte.
 
 ## halt
 
@@ -283,7 +283,7 @@ La machine est éteinte mais elle n'est pas supprimée.
 
 Toutes tes données restent présentes.
 
-Tu peux la rallumer avec :
+On peut la rallumer avec :
 
 ```bash
 vagrant up
@@ -307,7 +307,7 @@ Redémarrer
 
 Pourquoi faire un reload ?
 
-Supposons que tu modifies le Vagrantfile.
+Supposons que on modifie le Vagrantfile.
 
 Avant :
 
@@ -337,7 +337,7 @@ Vagrant :
 
 Avec provisionnement
 
-Tu peux également exécuter :
+On peut également exécuter :
 
 ```bash
 vagrant reload --provision
@@ -353,7 +353,7 @@ Démarrage
 Réexécution des scripts de provisionnement
 ```
 
-C'est pratique lorsque tu modifies un script d'installation.
+C'est pratique lorsque on modifie un script d'installation.
 
 ## destroy
 
@@ -369,7 +369,7 @@ Vagrant te demandera généralement une confirmation :
 Are you sure you want to destroy the machine? [y/N]
 ```
 
-Si tu réponds :
+Si on répond :
 
 ```
 y
@@ -386,7 +386,7 @@ Ce qui est supprimé
 
 Ce qui n'est pas supprimé
 
-Ton dossier de projet reste intact.
+Notre dossier de projet reste intact.
 
 Par exemple :
 
@@ -397,9 +397,9 @@ Projet/
 │── data/
 ```
 
-reste sur ton ordinateur.
+reste sur notre ordinateur.
 
-Tu peux ensuite recréer une nouvelle VM avec :
+On peut ensuite recréer une nouvelle VM avec :
 
 ```
 vagrant up

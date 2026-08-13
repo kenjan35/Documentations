@@ -26,7 +26,7 @@ print(type(fuel))
 fuel = fuel.to_numpy()
 ```
 
-1. Lire des données
+## 1. Lire des données
 
 Créer un DataFrame à partir d'un fichier.
 ```python
@@ -48,7 +48,7 @@ print(df.head())
 2  Eva    28  Nice
 ```
 
-2. Explorer les données
+## 2. Explorer les données
 
 Connaître la structure du DataFrame.
 
@@ -68,7 +68,7 @@ Nom des colonnes :
 df.columns
 ```
 
-3. Sélectionner des données
+## 3. Sélectionner des données
 
 Une colonne :
 
@@ -105,7 +105,7 @@ df.loc[0, "Age"]
 - Exclusif : Dans un découpage (slice) de type 0:3, la dernière valeur n'est pas comprise (elle s'arrête à 2).
 - Exemple : df.iloc[0, 0] sélectionne la première ligne et la première colonne du tableau.
 
-4. Filtrer des données
+## 4. Filtrer des données
 
 Les personnes de plus de 30 ans :
 
@@ -119,7 +119,7 @@ Deux conditions :
 df[(df["Age"] > 30) & (df["Ville"] == "Paris")]
 ```
 
-5. Trier
+## 5. Trier
 
 Par âge :
 
@@ -133,7 +133,7 @@ Ordre décroissant :
 df.sort_values("Age", ascending=False)
 ```
 
-6. Ajouter une colonne
+## 6. Ajouter une colonne
 ```python
 df["Age x2"] = df["Age"] * 2
 ```
@@ -146,7 +146,7 @@ Alice   25      50
 Bob     31      62
 ```
 
-7. Modifier des valeurs
+## 7. Modifier des valeurs
 ```python
 df["Age"] = df["Age"] + 1
 ```
@@ -157,7 +157,7 @@ Ou seulement certaines lignes :
 df.loc[df["Age"] < 18, "Age"] = 18
 ```
 
-8. Supprimer
+## 8. Supprimer
 
 Une colonne :
 
@@ -171,7 +171,7 @@ Une ligne :
 df.drop(index=3)
 ```
 
-9. Renommer
+## 9. Renommer
 
 Colonnes :
 
@@ -179,7 +179,7 @@ Colonnes :
 df.rename(columns={"Age": "Âge"})
 ```
 
-10. Gérer les valeurs manquantes
+## 10. Gérer les valeurs manquantes
 
 Compter :
 
@@ -205,13 +205,13 @@ Ou
 df.fillna(df["Age"].mean())
 ```
 
-11. Supprimer les doublons
+## 11. Supprimer les doublons
 
 ```python
 df.drop_duplicates()
 ```
 
-12. Convertir un type
+## 12. Convertir un type
 
 Texte → entier
 
@@ -225,7 +225,7 @@ Date :
 df["Date"] = pd.to_datetime(df["Date"])
 ```
 
-13. Calculer
+## 13. Calculer
 
 Moyenne :
 
@@ -257,7 +257,7 @@ df["Age"].sum()
 df["Age"].std()
 ```
 
-14. Grouper
+## 14. Grouper
 
 Par ville :
 
@@ -273,7 +273,7 @@ Lyon     34.7
 Nice     25.8
 ```
 
-15. Compter
+## 15. Compter
 
 Nombre de personnes par ville :
 
@@ -281,7 +281,7 @@ Nombre de personnes par ville :
 df["Ville"].value_counts()
 ```
 
-16. Fusionner
+## 16. Fusionner
 
 Deux DataFrames :
 
@@ -289,14 +289,14 @@ Deux DataFrames :
 df = pd.merge(df1, df2, on="ID")
 ```
 
-17. Concaténer
+## 17. Concaténer
 ```python
 df = pd.concat([df1, df2])
 ```
 
 Très utile pour réunir les données des fichiers.
 
-18. Appliquer une fonction
+## 18. Appliquer une fonction
 ```python
 df["Age"] = df["Age"].apply(lambda x: x + 5)
 ```
@@ -310,7 +310,7 @@ def carre(x):
 df["Age²"] = df["Age"].apply(carre)
 ```
 
-19. Itérer
+## 19. Itérer
 
 Par lignes :
 
@@ -325,7 +325,7 @@ La méthode iterrows() renvoie deux valeurs à chaque itération :
 En Python, _ signifie par convention :
 "Je reçois cette valeur, mais je ne vais pas l'utiliser."
 
-20. Sauvegarder
+## 20. Sauvegarder
 
 En CSV :
 
