@@ -1,3 +1,16 @@
+## CI/CD :
+Le CI/CD désigne l'intégration continue et la livraison ou le déploiement continu, des pratiques clés du développement logiciel qui automatisent la construction, les tests et la mise en production des codes.
+
+* Intégration Continue (CI)
+  * Fusion fréquente : les développeurs ajoutent leur code dans un dépôt commun plusieurs fois par jour.
+  * Tests automatiques : le système lance des tests pour trouver les erreurs tout de suite.
+  * Correction rapide : les équipes réparent les bugs avant qu'ils ne grossissent.
+
+* Livraison et Déploiement Continus (CD)
+  * Livraison continue : le code prêt est validé pour aller en phase de test final (staging).
+  * Déploiement continu : le code validé est envoyé directement aux utilisateurs sans action humaine.
+  * Moins d'erreurs : l'automatisation évite les oublis et les gestes manuels.
+
 ## Hyperviseur :
 C'est un logiciel qui permet de faire tourner un ou plusieurs systèmes d'exploitation sur un seul ordinateur physique.
 
