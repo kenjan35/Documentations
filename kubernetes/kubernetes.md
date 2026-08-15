@@ -5,6 +5,7 @@ Kubernetes n'est pas un système PaaS (Platform as a Service) traditionnel et to
 
 Docker sert principalement à créer et exécuter des conteneurs. Kubernetes sert à gérer et orchestrer des conteneurs, souvent sur plusieurs machines.
 
+```
 Imagine que tu as :
 
         Kubernetes
@@ -16,18 +17,19 @@ Imagine que tu as :
   Pod      Pod      Pod
    │        │        │
 Container Container Container
+```
 
 Kubernetes peut notamment :
 
-démarrer des conteneurs ;
-arrêter/remplacer automatiquement des conteneurs ;
-redémarrer une application qui plante ;
-répartir les applications entre plusieurs machines ;
-faire du scaling ;
-gérer le réseau entre les applications ;
-effectuer des mises à jour progressivement ;
-exposer les applications à travers des Services/Ingress ;
-maintenir l'état souhaité du système.
+* démarrer des conteneurs ;
+* arrêter/remplacer automatiquement des conteneurs ;
+* redémarrer une application qui plante ;
+* répartir les applications entre plusieurs machines ;
+* faire du scaling ;
+* gérer le réseau entre les applications ;
+* effectuer des mises à jour progressivement ;
+* exposer les applications à travers des Services/Ingress ;
+* maintenir l'état souhaité du système.
 
 Par exemple, tu demandes :
 ```
