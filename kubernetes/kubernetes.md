@@ -61,3 +61,31 @@ Application
 ├── Pod 3
 └── Pod 4
 ```
+
+Un Pod est la plus petite unité déployable de Kubernetes.
+
+Le point important à retenir :
+
+Un Pod est une enveloppe dans laquelle Kubernetes fait tourner un ou plusieurs conteneurs.
+
+1. Le rapport Docker → Pod
+
+Avec Docker, tu peux avoir :
+
+```
+Docker
+  │
+  └── Conteneur
+       └── Application
+```
+
+Avec Kubernetes :
+
+```
+Kubernetes
+    │
+    └── Pod
+         │
+         └── Conteneur
+              └── Application
+```
