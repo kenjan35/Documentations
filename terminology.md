@@ -1,3 +1,27 @@
+## API (Application Programming Interface) :
+C'est une interface qui permet à deux programmes de communiquer entre eux.
+
+API SOAP ou REST
+Pour standardiser l'échange des informations entre les API toujours plus nombreuses, il a fallu développer un protocole : le « Simple Object Access Protocol », plus connu sous le nom de SOAP. Les API conçues d'après le protocole SOAP utilisent le format XML pour leurs messages et reçoivent des requêtes via HTTP ou SMTP. SOAP a pour objectif de simplifier l'échange des informations entre les applications qui s'exécutent dans des environnements différents ou qui ont été écrites dans des langages différents.
+
+Le « Representational State Transfer », ou REST, est une autre tentative de normalisation. Les API web qui respectent les contraintes de l'architecture REST sont appelées API RESTful. Ces deux éléments diffèrent sur un point fondamental : SOAP est un protocole, alors que REST est un style d'architecture. Cela signifie qu'il n'existe aucune norme officielle qui régit les API web RESTful. Selon la définition proposée par Roy Fielding dans sa thèse « Architectural Styles and the Design of Network-based Software Architectures », les API sont RESTful tant qu'elles respectent les six contraintes de conception d'un système RESTful :
+
+* Architecture client-serveur : une architecture REST est composée de clients, de serveurs et de ressources et elle traite les requêtes via le protocole HTTP.
+* Serveur stateless : le contenu du client n'est jamais stocké sur le serveur entre les requêtes. Les informations sur l'état de la session sont, quant à elles, stockées sur le client.
+* Mémoire cache : la mise en mémoire cache permet de se passer de certaines interactions entre le client et le serveur.
+* Système à couches : des couches supplémentaires peuvent assurer la médiation dans les interactions entre le client et le serveur. Ces couches peuvent remplir des fonctions supplémentaires, telles que l'équilibrage de charge, le partage des caches ou la sécurité.
+* Code à la demande (facultatif) : un serveur peut étendre les fonctionnalités d'un client en lui transférant du code exécutable.
+* Interface uniforme : cette contrainte est capitale pour la conception des API RESTful et couvre quatre aspects différents :
+  * Identification des ressources dans les requêtes : les ressources sont identifiées dans les requêtes et sont séparées des représentations retournées au client.
+  * Manipulation des ressources par des représentations : les clients reçoivent des fichiers qui représentent les ressources. Ces représentations doivent contenir suffisamment d'informations pour être modifiées ou supprimées.
+  * Messages autodescriptifs : tous les messages renvoyés au client contiennent assez d'informations pour décrire la manière dont celui-ci doit traiter les informations.
+  * Hypermédia comme moteur du changement des états applicatifs : après avoir accédé à une ressource, le client REST doit être en mesure de découvrir toutes les autres actions disponibles par des hyperliens.
+Ces contraintes peuvent sembler difficiles à appliquer, mais dans les faits, elles le sont moins qu'un protocole. C'est pour cette raison que les API RESTful prennent progressivement le pas sur les API SOAP.
+
+Ces dernières années, la spécification OpenAPI s'est imposée comme la norme commune pour définir les API REST. La norme OpenAPI permet aux développeurs de créer des interfaces d'API REST indépendantes du langage de manière à ce que les utilisateurs puissent les comprendre avec un minimum d'approximation.
+
+Une autre norme d'API est en train d'émerger : GraphQL, un langage de requête et un environnement d'exécution côté serveur qui se propose de remplacer l'architecture REST. GraphQL s'attache à fournir aux clients uniquement les données qu'ils ont demandées, et rien de plus. Utilisé à la place de REST, GraphQL permet aux développeurs de créer des requêtes qui extraient les données de plusieurs sources à l'aide d'un seul appel d'API.
+
 ## CI/CD :
 Le CI/CD désigne l'intégration continue et la livraison ou le déploiement continu, des pratiques clés du développement logiciel qui automatisent la construction, les tests et la mise en production des codes.
 
