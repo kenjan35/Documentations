@@ -76,3 +76,5 @@ print(f"Âge en années : {age.days / 365.25:.1f}")
 # Formater l'affichage
 print(f"Birthday : {birthday.strftime('%d/%m/%Y at %H:%M')}")
 ```
+
+*Note : float(diff_sec) est redondant car total_seconds() retourne déjà un float. On peut écrire directement **diff_sec dans le f-string.***
