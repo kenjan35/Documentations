@@ -89,3 +89,85 @@ Kubernetes
          └── Conteneur
               └── Application
 ```
+
+## Comprendre la communication entre Server et ServerWorker
+Avant d'installer K3s, il faut comprendre comment les deux machines vont communiquer.
+
+Notre objectif est de comprendre ce qui se passe lorsqu'un Worker rejoint un cluster Kubernetes.
+### 1. Comprendre le rôle du Server
+Le Server va héberger le Control Plane de Kubernetes.
+
+Il expose notamment une API appelée Kubernetes API Server.
+```
+Server — 192.168.56.110
+K3s Server
+     |
+     |
+Kubernetes API Server
+6443
+Port TCP utilisé par les agents pour communiquer avec le serveur
+     |
+     |
+ServerWorker — 192.168.56.111
+K3s Agent
+```
+
+Le Worker devra pouvoir contacter l'API Server sur le port TCP 6443.
+
+### 2. Comprendre les ports réseau
+Voici les principaux ports à connaître pour ton projet :
+```
+Port	Protocole	Utilisation
+6443	TCP	Kubernetes API Server
+10250	TCP	Kubelet API
+8472	UDP	Flannel VXLAN (si utilisé)
+22	TCP	SSH
+```
+
+Attention : tous ces ports n'ont pas besoin d'être ouverts sur toutes les interfaces. Par exemple, le port 6443 doit être accessible depuis les agents vers le Server.
+
+### 3. Tester la connectivité du port 6443
+Pour le moment, K3s n'est pas encore installé. Il est donc normal que le port 6443 ne soit pas ouvert.
+
+Depuis ServerWorker, tu peux tester :
+```bash
+nc -zv 192.168.56.110 6443
+```
+
+Tu obtiendras probablement une erreur de connexion refusée.
+
+C'est normal : aucun service n'écoute encore sur ce port.
+
+Tu peux également vérifier les interfaces réseau :
+```bash
+ip addr
+```
+
+Et les routes :
+```bash
+ip route
+```
+
+Ces deux commandes sont importantes pour comprendre comment Linux choisit une interface pour joindre une adresse IP.
+
+### 4. Comprendre le fonctionnement du token
+Une fois K3s installé sur Server, un fichier sera créé :
+```bash
+sudo cat /var/lib/rancher/k3s/server/node-token
+```
+
+Ce fichier contient le token utilisé pour authentifier les agents qui souhaitent rejoindre le cluster.
+
+Le Worker aura besoin de deux informations :
+```
+K3S_URL
+K3S_TOKEN
+```
+
+Par exemple :
+```
+K3S_URL=https://192.168.56.110:6443
+K3S_TOKEN=<token-du-server>
+```
+
+Le token est un secret : ne le publie pas et ne le place pas directement dans un dépôt Git.
