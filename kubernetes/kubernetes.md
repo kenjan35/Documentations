@@ -171,3 +171,39 @@ K3S_TOKEN=<token-du-server>
 ```
 
 Le token est un secret : ne le publie pas et ne le place pas directement dans un dépôt Git.
+
+## Installation de K3s Server
+
+### 1. Se connecter au Server
+
+Depuis l'ordinateur :
+
+```bash
+vagrant ssh atolojanS
+```
+
+### Comprendre ce que nous allons installer
+
+K3s est une distribution legere de Kubernetes.
+
+Lorsqu'on installe K3s en mode Server, plusieurs composants sont installes et configures automatiquement.
+
+```md
+K3s Server
+
+    **API Server**
+    Reçoit les requêtes Kubernetes.
+
+    **Scheduler**
+    Décide sur quel Worker placer les Pods.
+
+    **Controller Manager**
+    Maintient le cluster dans l'état souhaité.
+
+    **Datastore**
+    Stocke l'état du cluster (SQLite par défaut pour un Server K3s autonome).
+```
+
+Tu n'as pas besoin d'installer chacun de ces composants manuellement.
+
+
