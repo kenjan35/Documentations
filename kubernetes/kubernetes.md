@@ -206,4 +206,123 @@ K3s Server
 
 Tu n'as pas besoin d'installer chacun de ces composants manuellement.
 
+### 3. Comprendre la commande d'installation
+La commande officielle d'installation de K3s ressemble à ceci :
 
+```
+curl -sfL https://get.k3s.io | sh -
+```
+
+Décomposons-la.
+
+| Élément | Fonction |
+|---|---|
+| curl | Télécharge le script |
+| -s | Mode silencieux |
+| -f | Échoue en cas d'erreur HTTP |
+| -L | Suit les redirections |
+| | | Transmet le résultat à la commande suivante |
+| sh - | Exécute le script avec le shell |
+
+En résumé :
+
+```
+Internet
+   |
+   v
+get.k3s.io
+   |
+   v
+Script d'installation
+   |
+   v
+Installation de K3s
+```
+
+Attention : cette commande installe K3s avec ses paramètres par défaut. Pour ton projet, nous allons préciser certaines options.
+
+### 4. Installer K3s en mode Server
+Nous voulons que ton serveur utilise cette adresse :
+```
+192.168.56.110
+```
+
+Nous allons également lui demander d'utiliser cette adresse comme endpoint d'enregistrement des agents.
+
+La commande :
+```bash
+curl -sfL https://get.k3s.io | \
+  INSTALL_K3S_EXEC="server --node-ip=192.168.56.110 --advertise-address=192.168.56.110" \
+  sh -
+```
+
+
+Voici les options importantes :
+
+```
+server
+```
+
+Indique que K3s doit fonctionner en mode Server.
+
+```
+--node-ip
+```
+
+Définit l'adresse IP utilisée par le nœud Kubernetes.
+
+```
+--advertise-address
+```
+
+Définit l'adresse IP annoncée par le Server aux autres composants du cluster.
+
+Pour le moment, nous n'activons pas de configuration particulière du datastore : SQLite sera utilisé par défaut.
+
+### 5. Vérifier l'installation
+Une fois l'installation terminée, vérifie le service :
+```bash
+sudo systemctl status k3s
+```
+
+Tu devrais voir :
+```
+Active: active (running)
+```
+
+Ensuite, vérifie la version :
+```bash
+sudo k3s --version
+```
+
+Puis vérifie les nœuds :
+```bash
+sudo k3s kubectl get nodes
+```
+
+Résultat attendu à ce stade :
+```
+NAME      STATUS   ROLES
+server    Ready    control-plane,master
+```
+
+Le Worker n'apparaît pas encore. C'est normal !
+
+### 6. Comprendre les fichiers importants
+Après l'installation, K3s crée plusieurs fichiers.
+Chemin	Utilité
+```
+/etc/rancher/k3s/k3s.yaml	Configuration d'accès au cluster (kubeconfig)
+/var/lib/rancher/k3s/server/node-token	Token d'authentification des agents
+/var/lib/rancher/k3s/	Données du serveur K3s
+```
+
+Le fichier qui nous intéresse particulièrement est :
+```bash
+sudo cat /var/lib/rancher/k3s/server/node-token
+```
+
+Il contient le token qui permettra au Worker de rejoindre le cluster.
+
+Important
+ Ne partage pas ce token publiquement. Il donne des droits d'enregistrement au cluster.
