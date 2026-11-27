@@ -308,6 +308,10 @@ server    Ready    control-plane,master
 
 Le Worker n'apparaît pas encore. C'est normal !
 
+*Ready* signifie que ton nœud est opérationnel et prêt à héberger des workloads.
+
+Si le statut est NotReady, attends quelques instants et relance la commande.
+
 ### 6. Comprendre les fichiers importants
 Après l'installation, K3s crée plusieurs fichiers.
 Chemin	Utilité
@@ -326,3 +330,63 @@ Il contient le token qui permettra au Worker de rejoindre le cluster.
 
 Important
  Ne partage pas ce token publiquement. Il donne des droits d'enregistrement au cluster.
+
+### Controller
+
+Dans K3s, le Controller Mode désigne le mode dans lequel une machine joue le rôle de serveur de contrôle du cluster Kubernetes.
+
+Dans ton projet, ta machine Server joue précisément ce rôle.
+
+### 1. C'est quoi un Controller ?
+Un cluster Kubernetes est composé de plusieurs éléments. Le Controller fait partie du Control Plane, c'est-à-dire le plan de contrôle du cluster.
+
+Son rôle est de gérer et coordonner les ressources du cluster.
+
+Par exemple, tu demandes à Kubernetes :
+*Je veux exécuter 3 instances de mon application.*
+
+Le Controller surveille l'état du cluster et veille à ce que cet objectif soit atteint.
+
+### 2. Les principaux composants du Control Plane
+
+```
+Control Plane (Server)
+
+Gestion du cluster Kubernetes
+
+    API Server
+
+    Reçoit les requêtes Kubernetes.
+
+
+    Scheduler
+
+    Décide où placer les Pods.
+
+
+    Controller Manager
+
+    Surveille et corrige l'état des ressources.
+
+
+    Datastore
+
+    Stocke l'état du cluster (SQLite par défaut dans K3s autonome).
+
+
+
+    Communication avec les nœuds Worker
+
+    Worker (Agent)
+
+    Exécute les applications dans les Pods.
+```
+
+### 3. Controller vs Worker dans K3s
+Server (Controller)	Worker (Agent)
+Gère le cluster	Exécute les applications
+Fournit l'API Kubernetes	Communique avec l'API
+Possède le Control Plane	Possède kubelet et le runtime de conteneurs
+Distribue les tâches	Exécute les Pods
+
+Petite précision : dans Kubernetes, le terme Controller peut aussi désigner les contrôleurs individuels (Deployment Controller, Node Controller, etc.). Ce n'est pas exactement la même chose que le rôle Server de K3s.
